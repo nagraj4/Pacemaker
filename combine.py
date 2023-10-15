@@ -131,7 +131,7 @@ def show_welcome():
     frame = Frame(root)
     center_frame(frame)
     
-    label_welcome = Label(frame, text="Welcome to the App", font=("Arial", 16))
+    label_welcome = Label(frame, text="Group 32 Pacemaker Project", font=("Arial", 16))
     label_welcome.pack(pady=20)
 
     btn_login = Button(frame, text="Login", command=show_login, padx=20, pady=10)
@@ -139,6 +139,10 @@ def show_welcome():
 
     btn_register = Button(frame, text="Register", command=show_register, padx=20, pady=10)
     btn_register.pack(pady=10)
+
+def clear_window():
+    for widget in root.winfo_children():
+        widget.destroy()
 
 def main_app():
     window = Tk()
@@ -375,7 +379,7 @@ def main_app():
     caution = Label(window, text = "Only change pacemaker values if you are sure of the changes that will occur; if problems occur please contact 911", bg = "#FFFFFF") #red = #DF7775
     caution.place(x=10, y=380)
     
-    window.title('3K04 GUI')
+    window.title('Group 32 Pacemaker Project')
     window.geometry("620x400+10+20")
     window.configure(bg="lightblue") #sunset orange = #FA5F55
     window.mainloop()
