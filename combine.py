@@ -228,7 +228,7 @@ def main_app():
                 else:
                     mode.VENT__GND_CTRL_D12 = 0
                 d12label.config(text = "VENT__GND_CTRL_D12:  " + str(mode.VENT__GND_CTRL_D12))
-            done_change = Button(window, text = "Save and Done", command = del_change)
+            done_change = Button(window, text = "Done", command = del_change)
             done_change.place(x=100, y=280)
             d8label = Button(window, text = "ATR_PACE_CTRL_D8:  " + str(mode.ATR_PACE_CTRL_D8), command = d8swap)
             d8label.place(x=100, y=10)
@@ -282,7 +282,7 @@ def main_app():
         year.place(x=400, y=10)
         display_date = Label(window, text = "Current: " + str(clicked_day.get()) + "/" + str(clicked_month.get()) + "/" + str(clicked_year.get()))
         display_date.place(x=400, y=100)
-        done_date = Button(window, text = "Save and Close", command = del_date)
+        done_date = Button(window, text = "Close", command = del_date)
         done_date.place(x=400, y=130)
 
     def time():
@@ -313,7 +313,7 @@ def main_app():
             display_time = Label(window, text = "Current: " + str(clicked_hour.get()) + ":" + str(clicked_min.get()) + ":" + str(clicked_sec.get()))
             display_time.place(x=500, y=100)
 
-        done_time = Button(window, text = "Save and Close", command = del_time)
+        done_time = Button(window, text = "Close", command = del_time)
         done_time.place(x=500, y=130)
         
     aoo = modes(0, 0, 0.5, 0, 0, 0, 0, 0, 0)
@@ -376,12 +376,27 @@ def main_app():
     vvi_init = Button(window, text="VVI mode", command = vvicall)
     vvi_init.place(x=10, y=100)
 
+    def about():
+        def close_about():
+            inst.destroy()
+            vers.destroy()
+            close_abt.destroy()
+        inst = Label(window, text = "Institution: McMaster University")
+        inst.place(x=320, y=290)
+        vers = Label(window, text = "Version: Python 3.11")
+        vers.place(x=320, y=320)
+        close_abt = Button(window, text = "Close", command = close_about)
+        close_abt.place(x=320, y=350)
+
+    about_func = Button(window, text = "About", command = about)
+    about_func.place(x=530, y=290)
+
     caution = Label(window, text = "Only change pacemaker values if you are sure of the changes that will occur; if problems occur please contact 911", bg = "#FFFFFF") #red = #DF7775
     caution.place(x=10, y=380)
     
     window.title('Group 32 Pacemaker Project')
     window.geometry("620x400+10+20")
-    window.configure(bg="lightblue") #sunset orange = #FA5F55
+    #window.configure(bg="lightblue") #sunset orange = #FA5F55
     window.mainloop()
 
 root = Tk()
